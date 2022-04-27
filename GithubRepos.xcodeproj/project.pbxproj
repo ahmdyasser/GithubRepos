@@ -11,7 +11,7 @@
 		7FC642D04382469D55F01670 /* Pods_GithubReposTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5E0B519F7D7DD519616CCF /* Pods_GithubReposTests.framework */; };
 		A69038CDCF1B8F277E2FE685 /* Pods_GithubRepos_GithubReposUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FD21BD3F475F68E47961595 /* Pods_GithubRepos_GithubReposUITests.framework */; };
 		EF65FE3C2819C88F00746FBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65FE3B2819C88F00746FBA /* AppDelegate.swift */; };
-		EF65FE402819C88F00746FBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65FE3F2819C88F00746FBA /* ViewController.swift */; };
+		EF65FE402819C88F00746FBA /* ReposListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65FE3F2819C88F00746FBA /* ReposListViewController.swift */; };
 		EF65FE452819C89000746FBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF65FE442819C89000746FBA /* Assets.xcassets */; };
 		EF65FE482819C89000746FBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF65FE462819C89000746FBA /* LaunchScreen.storyboard */; };
 		EF65FE532819C89000746FBA /* GithubReposTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65FE522819C89000746FBA /* GithubReposTests.swift */; };
@@ -44,6 +44,9 @@
 		EF65FEB12819EADA00746FBA /* RepositoryListViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65FEB02819EADA00746FBA /* RepositoryListViewModelType.swift */; };
 		EF65FEB32819EB4900746FBA /* RepoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65FEB22819EB4900746FBA /* RepoViewModel.swift */; };
 		EF65FEB72819EC6F00746FBA /* RepositoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65FEB62819EC6F00746FBA /* RepositoryListViewModel.swift */; };
+		EF65FEBA2819EF9E00746FBA /* RepoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65FEB92819EF9E00746FBA /* RepoListView.swift */; };
+		EF65FEBC2819F26500746FBA /* RepoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65FEBB2819F26500746FBA /* RepoCollectionViewCell.swift */; };
+		EF7060E22819FACA00D9D86D /* UIView+Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060E12819FACA00D9D86D /* UIView+Pin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +78,7 @@
 		C5B7DFF6C8FBFA332437A0CE /* Pods-GithubRepos-GithubReposUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubRepos-GithubReposUITests.release.xcconfig"; path = "Target Support Files/Pods-GithubRepos-GithubReposUITests/Pods-GithubRepos-GithubReposUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EF65FE382819C88F00746FBA /* GithubRepos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubRepos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF65FE3B2819C88F00746FBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EF65FE3F2819C88F00746FBA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EF65FE3F2819C88F00746FBA /* ReposListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListViewController.swift; sourceTree = "<group>"; };
 		EF65FE442819C89000746FBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF65FE472819C89000746FBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF65FE492819C89000746FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,6 +114,9 @@
 		EF65FEB02819EADA00746FBA /* RepositoryListViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewModelType.swift; sourceTree = "<group>"; };
 		EF65FEB22819EB4900746FBA /* RepoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoViewModel.swift; sourceTree = "<group>"; };
 		EF65FEB62819EC6F00746FBA /* RepositoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewModel.swift; sourceTree = "<group>"; };
+		EF65FEB92819EF9E00746FBA /* RepoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListView.swift; sourceTree = "<group>"; };
+		EF65FEBB2819F26500746FBA /* RepoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCollectionViewCell.swift; sourceTree = "<group>"; };
+		EF7060E12819FACA00D9D86D /* UIView+Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Pin.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				EF65FE892819DCAD00746FBA /* Publisher+flatMapLatest.swift */,
+				EF7060E12819FACA00D9D86D /* UIView+Pin.swift */,
 				EF65FE8B2819DD2700746FBA /* Publisher+ConvenienceMethods.swift */,
 				EF65FEAB2819E6BE00746FBA /* DateFormatter+Formatters.swift */,
 			);
@@ -389,7 +396,9 @@
 		EF65FEB82819EF2700746FBA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EF65FE3F2819C88F00746FBA /* ViewController.swift */,
+				EF65FE3F2819C88F00746FBA /* ReposListViewController.swift */,
+				EF65FEBB2819F26500746FBA /* RepoCollectionViewCell.swift */,
+				EF65FEB92819EF9E00746FBA /* RepoListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -636,13 +645,14 @@
 				EF65FE972819DE8F00746FBA /* ImageLoaderService.swift in Sources */,
 				EF65FE732819CAE700746FBA /* ReposListNavigator.swift in Sources */,
 				EF65FE6D2819C94400746FBA /* FlowCoordinator.swift in Sources */,
+				EF65FEBA2819EF9E00746FBA /* RepoListView.swift in Sources */,
 				EF65FE782819D70000746FBA /* ReposListFlowCoordinator.swift in Sources */,
 				EF65FE7F2819D9C600746FBA /* Resource.swift in Sources */,
 				EF65FEB72819EC6F00746FBA /* RepositoryListViewModel.swift in Sources */,
 				EF65FE922819DE0700746FBA /* AccessibilityIdentifiers.swift in Sources */,
 				EF65FE902819DDF300746FBA /* AutoMockable.swift in Sources */,
 				EF65FE7B2819D73D00746FBA /* ServiceProvider.swift in Sources */,
-				EF65FE402819C88F00746FBA /* ViewController.swift in Sources */,
+				EF65FE402819C88F00746FBA /* ReposListViewController.swift in Sources */,
 				EF65FE992819DEB900746FBA /* ImageCache.swift in Sources */,
 				EF65FE6F2819C9CA00746FBA /* AppFlowCoordinator.swift in Sources */,
 				EF65FE812819D9FB00746FBA /* NetworkServiceType.swift in Sources */,
@@ -653,10 +663,12 @@
 				EF65FEAC2819E6BE00746FBA /* DateFormatter+Formatters.swift in Sources */,
 				EF65FE3C2819C88F00746FBA /* AppDelegate.swift in Sources */,
 				EF65FEA12819E0B200746FBA /* Repository.swift in Sources */,
+				EF7060E22819FACA00D9D86D /* UIView+Pin.swift in Sources */,
 				EF65FE842819DA4500746FBA /* NetworkService.swift in Sources */,
 				EF65FE9C2819E05800746FBA /* Resource+Repository.swift in Sources */,
 				EF65FEA52819E31A00746FBA /* RepositoriesUseCaseType.swift in Sources */,
 				EF65FE712819CA7D00746FBA /* FlowCoordinatorDependencyProviders.swift in Sources */,
+				EF65FEBC2819F26500746FBA /* RepoCollectionViewCell.swift in Sources */,
 				EF65FEA32819E16500746FBA /* RepoDetail.swift in Sources */,
 				EF65FE862819DA7A00746FBA /* GHContants.swift in Sources */,
 				EF65FE8C2819DD2700746FBA /* Publisher+ConvenienceMethods.swift in Sources */,

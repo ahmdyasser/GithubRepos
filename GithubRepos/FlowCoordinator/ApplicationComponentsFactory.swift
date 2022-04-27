@@ -10,6 +10,8 @@ import UIKit
 /// The ApplicationComponentsFactory .
 final class ApplicationComponentsFactory {
   
+  fileprivate lazy var useCase: RepositoriesUseCase = RepositoriesUseCase.init(networkService: servicesProvider.network, imageLoaderService: servicesProvider.imageLoader)
+
   private let servicesProvider: ServicesProvider
 
   init(servicesProvider: ServicesProvider = ServicesProvider.defaultProvider) {
@@ -20,7 +22,8 @@ final class ApplicationComponentsFactory {
 extension ApplicationComponentsFactory: ApplicationFlowCoordinatorDependencyProvider {
   
   func reposListNavigationController(navigator: ReposListNavigator) -> UINavigationController {
-    let reposListVC = ReposListViewController.init()
+    let reposListVC = ReposListViewController.init(viewModel: RepositoryListViewModel.init(useCase: useCase,
+                                                                                           navigator: navigator))
     
     let navigationController = UINavigationController(rootViewController: reposListVC)
     
