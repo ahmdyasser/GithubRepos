@@ -19,7 +19,7 @@ final class ApplicationComponentsFactory {
 
 extension ApplicationComponentsFactory: ApplicationFlowCoordinatorDependencyProvider {
   
-  func reposListNavigationController(navigator: ReposNavigator) -> UINavigationController {
+  func reposListNavigationController(navigator: ReposListNavigator) -> UINavigationController {
     let reposListVC = ReposListViewController.init()
     
     let navigationController = UINavigationController(rootViewController: reposListVC)

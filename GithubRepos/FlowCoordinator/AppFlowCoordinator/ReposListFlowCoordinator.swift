@@ -27,7 +27,7 @@ class ReposListFlowCoordinator: FlowCoordinator {
   }
 }
 
-extension ReposListFlowCoordinator: ReposNavigator {
+extension ReposListFlowCoordinator: ReposListNavigator {
   
   func showDetails(for repo: Int) {
     
