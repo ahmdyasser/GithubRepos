@@ -17,8 +17,8 @@ final class NetworkService: NetworkServiceType {
   }
   
   @discardableResult
-  func load<Loadable>(_ resource: Resource<Loadable>) -> AnyPublisher<Loadable, Error> {
-    guard var request = resource.request else {
+  func load<Loadable>(_ resource: Resource<Loadable>?) -> AnyPublisher<Loadable, Error> {
+    guard var request = resource?.request else {
       return .fail(NetworkError.invalidRequest)
     }
     //FIXME: - Authorisation shouldn't placed here
