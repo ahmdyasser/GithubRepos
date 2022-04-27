@@ -12,7 +12,7 @@ final class ApplicationComponentsFactory {
   
   private let servicesProvider: ServicesProvider
 
-  init(servicesProvider: ServicesProvider = ServicesProvider.defaultProvider()) {
+  init(servicesProvider: ServicesProvider = ServicesProvider.defaultProvider) {
     self.servicesProvider = servicesProvider
   }
 }

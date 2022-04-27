@@ -15,5 +15,11 @@ target 'GithubRepos' do
   target 'GithubReposUITests' do
     # Pods for testing
   end
-
+  
+  plugin 'cocoapods-keys', {
+    :project => "GithubRepos",
+    :keys => [
+    "gitHubPersonalToken",
+    ]}
+  
 end
