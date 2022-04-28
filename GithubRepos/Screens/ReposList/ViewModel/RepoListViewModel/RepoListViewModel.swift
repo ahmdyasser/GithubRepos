@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class RepoListViewModel: RepositoryListViewModelable {
+final class RepoListViewModel: RepositoryListViewModelType {
 
   private weak var navigator: ReposListNavigator?
   private let useCase: RepositoriesUseCaseType

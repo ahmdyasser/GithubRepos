@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-protocol  RepositoryListViewModelable {
+protocol  RepositoryListViewModelType {
   func transform(input: RepositoryListViewModelInput) -> RepositoryListViewModelOutput
 }
 

@@ -21,7 +21,7 @@ class ReposListViewController: UIViewController {
   typealias ReposDataSource = UICollectionViewDiffableDataSource<ReposListViewController.Section, RepoViewModel>
 
   private var cancellableBag: [AnyCancellable] = []
-  private let viewModel: RepositoryListViewModelable
+  private let viewModel: RepositoryListViewModelType
   private let onSelection = PassthroughSubject<Int, Never>()
   private let onSearch = PassthroughSubject<String, Never>()
   private let onAppear = PassthroughSubject<Void, Never>()
@@ -38,7 +38,7 @@ class ReposListViewController: UIViewController {
   }
 
   // MARK: - Initialiser
-  init(viewModel: RepositoryListViewModelable) {
+  init(viewModel: RepositoryListViewModelType) {
     self.viewModel = viewModel
     super.init(nibName: nil, bundle: nil)
   }
@@ -57,7 +57,7 @@ class ReposListViewController: UIViewController {
 
   }
   // MARK: - View Model Binding
-  private func bind(to viewModel: RepositoryListViewModelable) {
+  private func bind(to viewModel: RepositoryListViewModelType) {
 
     cancellableBag.forEach { $0.cancel() }
     cancellableBag.removeAll()

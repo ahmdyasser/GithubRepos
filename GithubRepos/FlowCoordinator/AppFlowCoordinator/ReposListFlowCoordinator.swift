@@ -29,7 +29,8 @@ class ReposListFlowCoordinator: FlowCoordinator {
 
 extension ReposListFlowCoordinator: ReposListNavigator {
   func showDetails(for repo: Repository) {
-    reposNavigationController?.present(ReposListViewController.init(viewModel: RepoListViewModel.init(useCase: RepositoriesUseCase.init(), navigator: self)), animated: true)
+    let controller = self.dependencyProvider.repoDetailController(repo)
+    reposNavigationController?.present(controller, animated: true)
   }
 
 }

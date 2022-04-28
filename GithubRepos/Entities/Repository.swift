@@ -8,12 +8,16 @@
 import Foundation
 
 /// Repository represents a single GH Repository.
-struct Repository: Codable, Hashable, Identifiable {
+struct Repository: Codable, Hashable, Identifiable, RepoCoverProvider {
   let id: Int
   let nodeID, name, fullName: String
   let owner: Owner
   let url: String
   let createdAt: String?
+
+  var imageURL: String {
+    return owner.avatarURL
+  }
 
   enum CodingKeys: String, CodingKey {
     case id

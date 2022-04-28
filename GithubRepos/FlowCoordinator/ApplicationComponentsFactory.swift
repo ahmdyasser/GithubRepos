@@ -31,9 +31,11 @@ extension ApplicationComponentsFactory: ApplicationFlowCoordinatorDependencyProv
     return navigationController
   }
 
-  func repoDetailController(_ repoID: Int) -> UIViewController {
-    assertionFailure("Needs Implementation")
-    return .init()
+  func repoDetailController(_ repo: Repository) -> UIViewController {
+    let vc = RepoDetailViewController.init(repo: repo,
+                                           viewModel: RepoDetailViewModel.init(useCase: useCase))
+    vc.view.backgroundColor = .systemBlue
+    return vc
   }
 
 }

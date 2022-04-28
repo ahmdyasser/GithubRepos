@@ -15,5 +15,5 @@ protocol GitHubReposFlowCoordinatorDependencyProvider: AnyObject {
   func reposListNavigationController(navigator: ReposListNavigator) -> UINavigationController
 
   // Creates UIViewController to show the details of a repo with specified identifier
-  func repoDetailController(_ repoID: Int) -> UIViewController
+  func repoDetailController(_ repo: Repository) -> UIViewController
 }

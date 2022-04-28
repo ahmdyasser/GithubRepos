@@ -51,6 +51,9 @@
 		EF7060E6281A2AB100D9D86D /* RoundedCellViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060E5281A2AB100D9D86D /* RoundedCellViewComponents.swift */; };
 		EF7060E8281A2C9100D9D86D /* ReposCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060E7281A2C9100D9D86D /* ReposCollectionViewDelegate.swift */; };
 		EF7060EB281A3C9800D9D86D /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060EA281A3C9800D9D86D /* Haptics.swift */; };
+		EF7060F2281A590700D9D86D /* RepoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060F1281A590700D9D86D /* RepoDetailViewModel.swift */; };
+		EF7060F4281A593C00D9D86D /* RepoDetailViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060F3281A593C00D9D86D /* RepoDetailViewModelType.swift */; };
+		EF7060F6281A5A7900D9D86D /* RepoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060F5281A5A7900D9D86D /* RepoDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +128,9 @@
 		EF7060E5281A2AB100D9D86D /* RoundedCellViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCellViewComponents.swift; sourceTree = "<group>"; };
 		EF7060E7281A2C9100D9D86D /* ReposCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		EF7060EA281A3C9800D9D86D /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
+		EF7060F1281A590700D9D86D /* RepoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailViewModel.swift; sourceTree = "<group>"; };
+		EF7060F3281A593C00D9D86D /* RepoDetailViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailViewModelType.swift; sourceTree = "<group>"; };
+		EF7060F5281A5A7900D9D86D /* RepoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,7 +312,9 @@
 		EF65FE8D2819DD9700746FBA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				EF7060F0281A58EF00D9D86D /* RepoDetail */,
 				EF65FEAD2819EAA100746FBA /* ReposList */,
+				EF7060F5281A5A7900D9D86D /* RepoDetailViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -415,6 +423,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		EF7060F0281A58EF00D9D86D /* RepoDetail */ = {
+			isa = PBXGroup;
+			children = (
+				EF7060F1281A590700D9D86D /* RepoDetailViewModel.swift */,
+				EF7060F3281A593C00D9D86D /* RepoDetailViewModelType.swift */,
+			);
+			path = RepoDetail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -422,8 +439,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF65FE622819C89100746FBA /* Build configuration list for PBXNativeTarget "GithubRepos" */;
 			buildPhases = (
-				EF7060E9281A348800D9D86D /* SwiftLint */,
 				028515CB4364A97A9C3D144D /* [CP] Check Pods Manifest.lock */,
+				EF7060E9281A348800D9D86D /* SwiftLint */,
 				EF65FE342819C88F00746FBA /* Sources */,
 				EF65FE352819C88F00746FBA /* Frameworks */,
 				EF65FE362819C88F00746FBA /* Resources */,
@@ -681,7 +698,9 @@
 				EF65FE782819D70000746FBA /* ReposListFlowCoordinator.swift in Sources */,
 				EF65FE7F2819D9C600746FBA /* Resource.swift in Sources */,
 				EF65FEB72819EC6F00746FBA /* RepoListViewModel.swift in Sources */,
+				EF7060F2281A590700D9D86D /* RepoDetailViewModel.swift in Sources */,
 				EF65FE922819DE0700746FBA /* AccessibilityIdentifiers.swift in Sources */,
+				EF7060F6281A5A7900D9D86D /* RepoDetailViewController.swift in Sources */,
 				EF65FE902819DDF300746FBA /* AutoMockable.swift in Sources */,
 				EF65FE7B2819D73D00746FBA /* ServiceProvider.swift in Sources */,
 				EF65FE402819C88F00746FBA /* ReposListViewController.swift in Sources */,
@@ -708,6 +727,7 @@
 				EF65FE862819DA7A00746FBA /* GHContants.swift in Sources */,
 				EF65FE8C2819DD2700746FBA /* Publisher+ConvenienceMethods.swift in Sources */,
 				EF65FE8A2819DCAD00746FBA /* Publisher+flatMapLatest.swift in Sources */,
+				EF7060F4281A593C00D9D86D /* RepoDetailViewModelType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

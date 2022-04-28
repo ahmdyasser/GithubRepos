@@ -41,16 +41,16 @@ final class RepositoriesUseCase: RepositoriesUseCaseType {
       .eraseToAnyPublisher()
   }
 
-  func repositoryDetails(_ repo: Repository) -> AnyPublisher<Repository, Error> {
+  func repositoryDetails(_ repo: Repository) -> AnyPublisher<RepoDetail, Error> {
     return networkService
-      .load(Resource<Repository>.details(repoURL: repo.owner.url))
+      .load(Resource<RepoDetail>.details(repoURL: repo.url))
       .subscribe(on: Scheduler.backgroundWorkScheduler)
       .receive(on: Scheduler.mainScheduler)
       .eraseToAnyPublisher()
   }
 
-  func loadRepoImage(repo: Repository) -> AnyPublisher<UIImage?, Never> {
-    guard let url = URL.init(string: repo.owner.avatarURL) else {
+  func loadRepoImage(repo: RepoCoverProvider) -> AnyPublisher<UIImage?, Never> {
+    guard let url = URL.init(string: repo.imageURL) else {
       return .empty()
     }
     return self.imageLoaderService.loadImage(from: url).eraseToAnyPublisher()
@@ -58,7 +58,7 @@ final class RepositoriesUseCase: RepositoriesUseCaseType {
 
   func loadRepoDate(repo: Repository) -> AnyPublisher<String?, Never> {
     return networkService
-      .load(Resource<RepoDetail>.repoDate(repoURL: repo.owner.url))
+      .load(Resource<RepoDetail>.repoDate(repoURL: repo.url))
       .compactMap { $0.createdAt }
       .compactMap { DateFormatter.compactDate($0) }
       .mapError({ error -> Error in
