@@ -22,12 +22,15 @@ final class RepoDetailViewModel: RepoDetailViewModelType {
       }
       .print()
       .map {
-        DetailedRepoViewModel.init(createdAt: $0.createdAt,
-                                   forksCount: $0.forksCount,
-                                   watchersCount: $0.watchersCount ,
-                                   openIssuesCount: $0.openIssuesCount,
+        DetailedRepoViewModel.init(createdAt: "\($0.createdAt)",
+                                   forksCount: "\($0.forksCount)",
+                                   watchersCount: "\($0.watchersCount)" ,
+                                   openIssuesCount: "\($0.openIssuesCount)",
+                                   size: "\($0.size)",
+                                   name: $0.name,
+                                   description: $0.description ?? "",
                                    cover: self.useCase.loadRepoImage(repo: $0))
-      }.map { RepoDetailState.success([$0])}
+      }.map { RepoDetailState.success($0)}
       .eraseToAnyPublisher()
   }
 

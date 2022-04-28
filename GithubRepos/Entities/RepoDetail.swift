@@ -16,6 +16,9 @@ struct RepoDetail: Codable, RepoCoverProvider {
   let watchersCount: Int
   let openIssuesCount: Int
   let owner: Repository.Owner
+  let size: Int
+  var description: String?
+  var name: String
 
   var imageURL: String {
     return owner.avatarURL
@@ -26,6 +29,9 @@ struct RepoDetail: Codable, RepoCoverProvider {
     case watchersCount = "watchers_count"
     case forksCount = "forks_count"
     case owner = "owner"
+    case description = "description"
+    case name = "name"
+    case size = "size"
 
   }
 

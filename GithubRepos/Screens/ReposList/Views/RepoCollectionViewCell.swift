@@ -82,37 +82,37 @@ extension RoundedCell {
 
   // MARK: - Cell Details Stacks
   private func setupDetailsStack() {
-    // HSTACK
-    let HStack = UIStackView(arrangedSubviews: [repoCellView.subtitle, repoCellView.date])
-    HStack.distribution = .equalSpacing
-    HStack.axis = .horizontal
+    // hStack
+    let hStack = UIStackView(arrangedSubviews: [repoCellView.subtitle, repoCellView.date])
+    hStack.distribution = .equalSpacing
+    hStack.axis = .horizontal
 
-    // VSTACK
-    let VStack = UIStackView(arrangedSubviews: [repoCellView.title, HStack])
-    VStack.setCustomSpacing(5, after: repoCellView.title)
-    VStack.distribution = .equalSpacing
-    VStack.axis = .vertical
-    VStack.translatesAutoresizingMaskIntoConstraints = false
-    VStack.layoutMargins = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-    VStack.isLayoutMarginsRelativeArrangement = true
+    // vStack
+    let vStack = UIStackView(arrangedSubviews: [repoCellView.title, hStack])
+    vStack.setCustomSpacing(5, after: repoCellView.title)
+    vStack.distribution = .equalSpacing
+    vStack.axis = .vertical
+    vStack.translatesAutoresizingMaskIntoConstraints = false
+    vStack.layoutMargins = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+    vStack.isLayoutMarginsRelativeArrangement = true
     contentView.addSubview(repoCellView.thumbnailView)
-    contentView.addSubview(VStack)
+    contentView.addSubview(vStack)
     repoCellView.thumbnailView.pin(to: contentView)
 
     let inset = CGFloat(0)
 
     NSLayoutConstraint.activate([
-      VStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: inset),
-      VStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -inset),
-      VStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset)
+      vStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: inset),
+      vStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -inset),
+      vStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset)
     ])
 
-    // VSTACK Background
+    // vStack Background
     let stackBackground = UIView.init()
     stackBackground.translatesAutoresizingMaskIntoConstraints = false
-    VStack.insertSubview(stackBackground, at: 0)
+    vStack.insertSubview(stackBackground, at: 0)
     stackBackground.backgroundColor = .secondarySystemBackground.withAlphaComponent(0.7)
-    stackBackground.pin(to: VStack)
+    stackBackground.pin(to: vStack)
   }
 }
 

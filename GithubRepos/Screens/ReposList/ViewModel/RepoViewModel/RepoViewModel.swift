@@ -46,12 +46,33 @@ extension RepoViewModel {
   }
 }
 
-struct DetailedRepoViewModel: Hashable, Equatable {
+class DetailedRepoViewModel: Hashable, Equatable, ObservableObject {
+
+  init(createdAt: String = "",
+       forksCount: String = "",
+       watchersCount: String = "",
+       openIssuesCount: String = "",
+       size: String = "",
+       name: String = "",
+       description: String = "",
+       cover: AnyPublisher<UIImage?, Never> = .empty()) {
+    self.createdAt = createdAt
+    self.forksCount = forksCount
+    self.watchersCount = watchersCount
+    self.openIssuesCount = openIssuesCount
+    self.size = size
+    self.name = name
+    self.description = description
+    self.cover = cover
+  }
 
   let createdAt: String
-  let forksCount: Int
-  let watchersCount: Int
-  let openIssuesCount: Int
+  let forksCount: String
+  let watchersCount: String
+  let openIssuesCount: String
+  let size: String
+  let name: String
+  let description: String
   let cover: AnyPublisher<UIImage?, Never>
 
   func hash(into hasher: inout Hasher) {
@@ -65,10 +86,13 @@ struct DetailedRepoViewModel: Hashable, Equatable {
   enum Builder {
     static func viewModel(from repo: RepoDetail,
                           imageLoader: (RepoDetail) -> AnyPublisher<UIImage?, Never>) -> DetailedRepoViewModel {
-      return DetailedRepoViewModel.init(createdAt: repo.createdAt,
-                                        forksCount: repo.forksCount,
-                                        watchersCount: repo.watchersCount,
-                                        openIssuesCount: repo.openIssuesCount,
+      return DetailedRepoViewModel.init(createdAt: "\(repo.createdAt)",
+                                        forksCount: "\(repo.forksCount)",
+                                        watchersCount: "\(repo.watchersCount)",
+                                        openIssuesCount: "\(repo.openIssuesCount)",
+                                        size: "\(repo.size)",
+                                        name: "\(repo.name)",
+                                        description: repo.description ?? "",
                                         cover: imageLoader(repo))
     }
   }

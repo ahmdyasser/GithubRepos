@@ -22,7 +22,5 @@ struct RepoDetailViewModelInput {
 
 enum RepoDetailState {
   case loading
-  case success([DetailedRepoViewModel])
-  case noResults
-  case failure(Error)
+  case success(DetailedRepoViewModel)
 }

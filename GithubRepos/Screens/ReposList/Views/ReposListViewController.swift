@@ -131,6 +131,7 @@ class ReposListViewController: UIViewController {
 
 }
 
+// MARK: - Search Delegate
 extension ReposListViewController: UISearchBarDelegate, UISearchResultsUpdating {
 
   func updateSearchResults(for searchController: UISearchController) {

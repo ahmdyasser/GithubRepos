@@ -16,6 +16,8 @@ class RepoDetailViewController: UIViewController {
   private var cancellableBag: [AnyCancellable] = []
   private let repo: Repository
 
+  let imageView: UIImageView = .init()
+
   init(repo: Repository, viewModel: RepoDetailViewModelType) {
     self.viewModel = viewModel
     self.repo = repo
@@ -30,7 +32,66 @@ class RepoDetailViewController: UIViewController {
     super.viewDidLoad()
     bind(to: viewModel)
     onAppear.send(repo)
+    configureUI()
+    self.view.backgroundColor = .systemBackground
 
+  }
+
+  func configureUI() {
+    view.addSubview(imageView)
+    imageView.backgroundColor = .green
+    imageView.translatesAutoresizingMaskIntoConstraints = false
+
+    let firstRow = makeRepoDetailRow()
+    let secondRow = makeRepoDetailRow()
+    let thirdRow = makeRepoDetailRow()
+
+    let stackContainer = UIStackView.init(arrangedSubviews: [firstRow, secondRow, thirdRow])
+    stackContainer.setCustomSpacing(10, after: firstRow)
+    stackContainer.setCustomSpacing(10, after: secondRow)
+    stackContainer.setCustomSpacing(10, after: thirdRow)
+
+    stackContainer.axis = .vertical
+
+    view.addSubview(stackContainer)
+    stackContainer.translatesAutoresizingMaskIntoConstraints = false
+
+    let topOffset: CGFloat = 10
+    let horizontalOffset: CGFloat = 0
+
+    let margins = view.layoutMarginsGuide
+
+    NSLayoutConstraint.activate([
+      stackContainer.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: topOffset),
+      stackContainer.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0),
+      stackContainer.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0),
+
+      imageView.heightAnchor.constraint(equalToConstant: 150),
+      imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalOffset),
+      imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -horizontalOffset)
+    ])
+
+  }
+  func makeRepoDetailRow() -> UIView {
+    let topOffset: CGFloat = 10
+    let label = UILabel.init(frame: .zero)
+    label.text = "Hello"
+    let label2 = UILabel.init(frame: .zero)
+    label2.text = "409"
+    let stack = UIStackView(arrangedSubviews: [label, label2])
+    stack.axis = .horizontal
+    stack.distribution = .fill
+    stack.spacing = 8
+    let backgroundV = ShadowView.init()
+    backgroundV.backgroundColor = .systemBackground
+    backgroundV.translatesAutoresizingMaskIntoConstraints = false
+    stack.insertSubview(backgroundV, at: 0)
+    backgroundV.pin(to: stack)
+
+    stack.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+    stack.isLayoutMarginsRelativeArrangement = true
+
+    return stack
   }
 
   private func bind(to viewModel: RepoDetailViewModelType) {
@@ -44,7 +105,23 @@ class RepoDetailViewController: UIViewController {
 
     output.sink(receiveCompletion: { _ in }) { newState in
       print(newState)
+      switch newState {
+
+      case .loading:
+        return
+      case .success(let result):
+        self.loadImage(imagePublisher: result.cover)
+      }
     }.store(in: &cancellableBag)
+  }
+
+  func loadImage(imagePublisher: AnyPublisher<UIImage?, Never>) {
+    imagePublisher.sink { image in
+      self.imageView.image = image
+      self.imageView.contentMode = .scaleAspectFill
+      self.imageView.clipsToBounds = true
+
+    }.store(in: &self.cancellableBag)
   }
 
 }

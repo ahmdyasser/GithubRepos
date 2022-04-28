@@ -54,6 +54,7 @@
 		EF7060F2281A590700D9D86D /* RepoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060F1281A590700D9D86D /* RepoDetailViewModel.swift */; };
 		EF7060F4281A593C00D9D86D /* RepoDetailViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060F3281A593C00D9D86D /* RepoDetailViewModelType.swift */; };
 		EF7060F6281A5A7900D9D86D /* RepoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060F5281A5A7900D9D86D /* RepoDetailViewController.swift */; };
+		EF7060FA281AA44E00D9D86D /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060F9281AA44E00D9D86D /* ShadowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		EF7060F1281A590700D9D86D /* RepoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailViewModel.swift; sourceTree = "<group>"; };
 		EF7060F3281A593C00D9D86D /* RepoDetailViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailViewModelType.swift; sourceTree = "<group>"; };
 		EF7060F5281A5A7900D9D86D /* RepoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailViewController.swift; sourceTree = "<group>"; };
+		EF7060F9281AA44E00D9D86D /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +329,7 @@
 				EF65FE912819DE0700746FBA /* AccessibilityIdentifiers.swift */,
 				EF65FEA92819E5AC00746FBA /* Scheduler.swift */,
 				EF7060EA281A3C9800D9D86D /* Haptics.swift */,
+				EF7060F9281AA44E00D9D86D /* ShadowView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -693,6 +696,7 @@
 				EF65FEAA2819E5AC00746FBA /* Scheduler.swift in Sources */,
 				EF65FE972819DE8F00746FBA /* ImageLoaderService.swift in Sources */,
 				EF65FE732819CAE700746FBA /* ReposListNavigator.swift in Sources */,
+				EF7060FA281AA44E00D9D86D /* ShadowView.swift in Sources */,
 				EF65FE6D2819C94400746FBA /* FlowCoordinator.swift in Sources */,
 				EF65FEBA2819EF9E00746FBA /* RepoListView.swift in Sources */,
 				EF65FE782819D70000746FBA /* ReposListFlowCoordinator.swift in Sources */,
