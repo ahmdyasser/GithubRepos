@@ -10,7 +10,7 @@ import UIKit
 
 /// Represents a single Repository ViewModel
 struct RepoViewModel: Hashable, Equatable {
-  
+
   let id: Int
   let title: String
   let ownerName: String
@@ -18,21 +18,19 @@ struct RepoViewModel: Hashable, Equatable {
   let date: AnyPublisher<String?, Never>
 }
 
-
-//MARK: - Hashable Implementation
+// MARK: - Hashable Implementation
 extension RepoViewModel {
   func hash(into hasher: inout Hasher) {
     hasher.combine(id)
   }
 }
 
-//MARK: - Equatable Implementation
+// MARK: - Equatable Implementation
 extension RepoViewModel {
   static func == (lhs: RepoViewModel, rhs: RepoViewModel) -> Bool {
     lhs.id == rhs.id
   }
 }
-
 
 extension RepoViewModel {
   enum Builder {

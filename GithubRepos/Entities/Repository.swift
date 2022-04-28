@@ -14,14 +14,13 @@ struct Repository: Codable, Hashable, Identifiable {
   let owner: Owner
   let url: String
   let createdAt: String?
-  
-  
+
   enum CodingKeys: String, CodingKey {
     case id
     case nodeID = "node_id"
     case name
     case fullName = "full_name"
-    case owner,url
+    case owner, url
     case createdAt = "created_at"
   }
 }
@@ -40,7 +39,7 @@ extension Repository {
     let eventsURL: String
     let receivedEventsURL: String
     let siteAdmin: Bool
-    
+
     enum CodingKeys: String, CodingKey {
       case login, id
       case nodeID = "node_id"

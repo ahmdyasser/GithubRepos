@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol  RepositoryListViewModelable {
-  func transform(input: RepositoryListViewModelInput) ->  RepositoryListViewModelOutput
+  func transform(input: RepositoryListViewModelInput) -> RepositoryListViewModelOutput
 }
 
 typealias RepositoryListViewModelOutput = AnyPublisher<RepositoryListState, Never>
@@ -21,9 +21,9 @@ struct RepositoryListViewModelInput {
   let onSearch: AnyPublisher<String, Never>
   /// called when the user selected an item from the list
   let onRepoSelection: AnyPublisher<Int, Never>
-  
+
   let onPageRequest: AnyPublisher<Void, Never>
-  
+
 }
 
 enum RepositoryListState {

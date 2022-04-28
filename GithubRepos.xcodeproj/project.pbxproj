@@ -48,6 +48,8 @@
 		EF65FEBC2819F26500746FBA /* RepoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65FEBB2819F26500746FBA /* RepoCollectionViewCell.swift */; };
 		EF7060E22819FACA00D9D86D /* UIView+Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060E12819FACA00D9D86D /* UIView+Pin.swift */; };
 		EF7060E4281A03FF00D9D86D /* String+matching.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060E3281A03FF00D9D86D /* String+matching.swift */; };
+		EF7060E6281A2AB100D9D86D /* RoundedCellViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060E5281A2AB100D9D86D /* RoundedCellViewComponents.swift */; };
+		EF7060E8281A2C9100D9D86D /* ReposCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060E7281A2C9100D9D86D /* ReposCollectionViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +121,8 @@
 		EF65FEBB2819F26500746FBA /* RepoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCollectionViewCell.swift; sourceTree = "<group>"; };
 		EF7060E12819FACA00D9D86D /* UIView+Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Pin.swift"; sourceTree = "<group>"; };
 		EF7060E3281A03FF00D9D86D /* String+matching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+matching.swift"; sourceTree = "<group>"; };
+		EF7060E5281A2AB100D9D86D /* RoundedCellViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCellViewComponents.swift; sourceTree = "<group>"; };
+		EF7060E7281A2C9100D9D86D /* ReposCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposCollectionViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,7 +404,9 @@
 			isa = PBXGroup;
 			children = (
 				EF65FE3F2819C88F00746FBA /* ReposListViewController.swift */,
+				EF7060E7281A2C9100D9D86D /* ReposCollectionViewDelegate.swift */,
 				EF65FEBB2819F26500746FBA /* RepoCollectionViewCell.swift */,
+				EF7060E5281A2AB100D9D86D /* RoundedCellViewComponents.swift */,
 				EF65FEB92819EF9E00746FBA /* RepoListView.swift */,
 			);
 			path = Views;
@@ -413,6 +419,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF65FE622819C89100746FBA /* Build configuration list for PBXNativeTarget "GithubRepos" */;
 			buildPhases = (
+				EF7060E9281A348800D9D86D /* SwiftLint */,
 				028515CB4364A97A9C3D144D /* [CP] Check Pods Manifest.lock */,
 				EF65FE342819C88F00746FBA /* Sources */,
 				EF65FE352819C88F00746FBA /* Frameworks */,
@@ -637,6 +644,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		EF7060E9281A348800D9D86D /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint --fix && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -658,6 +683,7 @@
 				EF65FE402819C88F00746FBA /* ReposListViewController.swift in Sources */,
 				EF65FE992819DEB900746FBA /* ImageCache.swift in Sources */,
 				EF65FE6F2819C9CA00746FBA /* AppFlowCoordinator.swift in Sources */,
+				EF7060E6281A2AB100D9D86D /* RoundedCellViewComponents.swift in Sources */,
 				EF65FE812819D9FB00746FBA /* NetworkServiceType.swift in Sources */,
 				EF65FE752819CF2F00746FBA /* ApplicationComponentsFactory.swift in Sources */,
 				EF65FEA82819E39500746FBA /* RepositoriesUseCase.swift in Sources */,
@@ -671,6 +697,7 @@
 				EF65FE9C2819E05800746FBA /* Resource+Repository.swift in Sources */,
 				EF65FEA52819E31A00746FBA /* RepositoriesUseCaseType.swift in Sources */,
 				EF65FE712819CA7D00746FBA /* FlowCoordinatorDependencyProviders.swift in Sources */,
+				EF7060E8281A2C9100D9D86D /* ReposCollectionViewDelegate.swift in Sources */,
 				EF65FEBC2819F26500746FBA /* RepoCollectionViewCell.swift in Sources */,
 				EF7060E4281A03FF00D9D86D /* String+matching.swift in Sources */,
 				EF65FEA32819E16500746FBA /* RepoDetail.swift in Sources */,

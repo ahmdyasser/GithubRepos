@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 public extension UIView {
-  
+
   func pin(to view: UIView) {
     NSLayoutConstraint.activate([
       leadingAnchor.constraint(equalTo: view.leadingAnchor),

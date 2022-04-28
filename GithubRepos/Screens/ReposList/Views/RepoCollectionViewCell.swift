@@ -5,167 +5,121 @@
 //  Created by Mostfa on 27/04/2022.
 //
 
-import Foundation
-import Combine
-
 import Combine
 import UIKit
 
+class RoundedCell: UICollectionViewCell {
+  static let reuseIdentifier = "RoundedCellReuseIdentifier"
 
-class RepoCell: UICollectionViewCell {
-  static let reuseIdentifier = "RepoCellReuseIdentifier"
-  
-  let title: UILabel = {
-    let title = UILabel.init()
-    title.adjustsFontForContentSizeCategory = true
-    title.numberOfLines = 0
-    title.lineBreakMode = .byWordWrapping
-    title.textAlignment = .left
-    title.font = .systemFont(ofSize: 13, weight: .semibold)
-    
-    return title
-  }()
-  
-  let subtitle = UILabel()
-  let date = UILabel()
-  var thumbnailView: UIImageView = {
-    return .init()
-  }()
   var imageLoader: ImageLoaderServiceType?
   var imageURL: String?
   var currentImageDownloader: AnyCancellable?
   var dateDownloader: AnyCancellable?
-  
-  
-  
+  var repoCellView: RoundedCellViewComponents = .init()
+
+  // Inits
   override init(frame: CGRect) {
     super.init(frame: frame)
     configure()
   }
-  
-  override func prepareForReuse() {
-    cancelImageLoading()
-  }
-  
-  func bind(to viewModel: RepoViewModel) {
-    cancelImageLoading()
-    title.text = viewModel.title
-    subtitle.text = viewModel.ownerName
-    currentImageDownloader = viewModel.cover.sink {image in self.showImage(image: image) }
-    dateDownloader = viewModel.date.sink(receiveValue: { self.setDate(string: $0)})
-  }
-  
+
   required init?(coder: NSCoder) {
     fatalError("Storyboards not supported.")
   }
-  
+
+  func configure() {
+    contentView.backgroundColor = .systemGray6
+    setupDetailsStack()
+  }
+
+  override func prepareForReuse() {
+    cancelImageLoading()
+  }
+
+  func bind(to viewModel: RepoViewModel) {
+    cancelImageLoading()
+    repoCellView.title.text = viewModel.title
+    repoCellView.subtitle.text = viewModel.ownerName
+    currentImageDownloader = viewModel.cover.sink {image in self.showImage(image: image) }
+    dateDownloader = viewModel.date.sink(receiveValue: { self.setDate(string: $0)})
+  }
+
   private func setDate(string: String?) {
     DispatchQueue.main.async {
       //      self.cancelImageLoading()
-      UIView.transition(with: self.date,
+      UIView.transition(with: self.repoCellView.date,
                         duration: 0.3,
                         options: [.curveEaseOut, .transitionCrossDissolve],
                         animations: {
-        self.date.text = string
+        self.repoCellView.date.text = string
       })
     }
-    
+
   }
-  
+
   private func showImage(image: UIImage?) {
     DispatchQueue.main.async {
       self.cancelImageLoading()
-      UIView.transition(with: self.thumbnailView,
+      UIView.transition(with: self.repoCellView.thumbnailView,
                         duration: 0.3,
                         options: [.curveEaseOut, .transitionCrossDissolve],
                         animations: {
-        self.thumbnailView.image = image
+        self.repoCellView.thumbnailView.image = image
       })
     }
-    
+
   }
-  
+
   func cancelImageLoading() {
-    thumbnailView.image = nil
+    repoCellView.thumbnailView.image = nil
     currentImageDownloader = nil
   }
-  
-  
+
 }
 
-extension RepoCell {
-  
-  func configure() {
-    
-    
-    
-    
-    subtitle.adjustsFontForContentSizeCategory = true
-    subtitle.numberOfLines = 0
-    subtitle.lineBreakMode = .byWordWrapping
-    subtitle.textAlignment = .left
-    subtitle.font = .systemFont(ofSize: 9, weight: .bold)
-    
-    
-    date.adjustsFontForContentSizeCategory = true
-    date.numberOfLines = 0
-    date.lineBreakMode = .byWordWrapping
-    date.textAlignment = .left
-    date.font = .systemFont(ofSize: 9, weight: .bold)
-    
-    
-    contentView.backgroundColor = .systemGray6
-    
-    date.translatesAutoresizingMaskIntoConstraints = false
-    subtitle.translatesAutoresizingMaskIntoConstraints = false
-    title.translatesAutoresizingMaskIntoConstraints = false
-    thumbnailView.translatesAutoresizingMaskIntoConstraints = false
-    
-    
-    selectedBackgroundView = UIView()
-    
-    let HStack = UIStackView(arrangedSubviews: [subtitle, date])
+extension RoundedCell {
+
+  // MARK: - Cell Details Stacks
+  private func setupDetailsStack() {
+    // HSTACK
+    let HStack = UIStackView(arrangedSubviews: [repoCellView.subtitle, repoCellView.date])
     HStack.distribution = .equalSpacing
     HStack.axis = .horizontal
-    
-    
-    let VStack = UIStackView(arrangedSubviews: [title, HStack])
-    VStack.setCustomSpacing(5, after: title)
+
+    // VSTACK
+    let VStack = UIStackView(arrangedSubviews: [repoCellView.title, HStack])
+    VStack.setCustomSpacing(5, after: repoCellView.title)
     VStack.distribution = .equalSpacing
     VStack.axis = .vertical
     VStack.translatesAutoresizingMaskIntoConstraints = false
     VStack.layoutMargins = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     VStack.isLayoutMarginsRelativeArrangement = true
-    contentView.addSubview(thumbnailView)
+    contentView.addSubview(repoCellView.thumbnailView)
     contentView.addSubview(VStack)
-    
-    
-    
-    
-    
-    
-    
-    
+    repoCellView.thumbnailView.pin(to: contentView)
+
     let inset = CGFloat(0)
-    
-    thumbnailView.pin(to: contentView)
-    
+
     NSLayoutConstraint.activate([
-      VStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant:  inset),
-      VStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant:  -inset),
-      VStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant:  -inset)
+      VStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: inset),
+      VStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -inset),
+      VStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset)
     ])
-    
-    let v = UIView.init()
-    v.translatesAutoresizingMaskIntoConstraints = false
-    VStack.insertSubview(v, at: 0)
-    v.backgroundColor = .secondarySystemBackground.withAlphaComponent(0.7)
-    v.pin(to: VStack)
-    
-    contentView.clipsToBounds = true
-    contentView.layer.cornerRadius = 4.0
-    contentView.layer.cornerCurve = .continuous
-    
-    
+
+    // VSTACK Background
+    let stackBackground = UIView.init()
+    stackBackground.translatesAutoresizingMaskIntoConstraints = false
+    VStack.insertSubview(stackBackground, at: 0)
+    stackBackground.backgroundColor = .secondarySystemBackground.withAlphaComponent(0.7)
+    stackBackground.pin(to: VStack)
   }
+}
+
+extension UICollectionViewCell {
+  func round(radius: CGFloat) {
+    contentView.clipsToBounds = true
+    contentView.layer.cornerRadius = radius
+    contentView.layer.cornerCurve = .continuous
+  }
+
 }

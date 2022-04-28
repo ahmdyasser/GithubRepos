@@ -15,13 +15,13 @@ final class NetworkService: NetworkServiceType {
     self.session = session
     self.jsonDecoder = jsonDecoder
   }
-  
+
   @discardableResult
   func load<Loadable>(_ resource: Resource<Loadable>?) -> AnyPublisher<Loadable, Error> {
     guard var request = resource?.request else {
       return .fail(NetworkError.invalidRequest)
     }
-    //FIXME: - Authorisation shouldn't placed here
+    // - Authorisation shouldn't placed here
     request.addValue("Bearer \(GHContants.apiKey)", forHTTPHeaderField: "Authorization")
     return session.dataTaskPublisher(for: request)
       .mapError { _ in NetworkError.invalidRequest }
@@ -30,7 +30,7 @@ final class NetworkService: NetworkServiceType {
         guard let response = response as? HTTPURLResponse else {
           return .fail(NetworkError.invalidResponse)
         }
-        
+
         guard 200..<300 ~= response.statusCode else {
           return .fail(NetworkError.dataLoadingError(statusCode: response.statusCode, data: data))
         }
@@ -39,5 +39,5 @@ final class NetworkService: NetworkServiceType {
       .decode(type: Loadable.self, decoder: JSONDecoder())
       .eraseToAnyPublisher()
   }
-  
+
 }

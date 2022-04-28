@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 protocol ReposListNavigator: AnyObject {
   /// Presents Repository details View.
   func showDetails(for repo: Int)

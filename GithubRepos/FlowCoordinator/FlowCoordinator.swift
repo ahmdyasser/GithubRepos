@@ -9,7 +9,7 @@ import Foundation
 
 /// FlowCoordinator is responsible for view controller coordinating
 protocol FlowCoordinator: AnyObject {
-  
+
   /// Stars the flow
   func start()
 }

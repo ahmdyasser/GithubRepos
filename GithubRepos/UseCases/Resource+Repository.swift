@@ -8,23 +8,23 @@
 import Foundation
 
 extension Resource {
-  
+
   static func repositories() -> Resource {
     let url = GHContants.baseUrl.appendingPathComponent("/repositories")
-    let parameters: [String : CustomStringConvertible] = [:]
+    let parameters: [String: CustomStringConvertible] = [:]
     return Resource(url: url, parameters: parameters)
   }
-  
+
   static func details(repoURL: String) -> Resource? {
-    ///RepoURL is usually passed from backend Response, so it's safer to leave it optional, in case backend response was messed up :)
+    // RepoURL is usually passed from backend Response, so it's safer to leave it optional, in case backend response was messed up :)
     guard let url = URL.init(string: repoURL) else {
       return nil
     }
     return Resource(url: url, parameters: [:])
   }
-  
+
   static func repoDate(repoURL: String) -> Resource? {
-    ///RepoURL is usually passed from backend Response, so it's safer to leave it optional, in case backend response was messed up :)
+    // RepoURL is usually passed from backend Response, so it's safer to leave it optional, in case backend response was messed up :)
     guard let url = URL.init(string: repoURL) else {
       return nil
     }

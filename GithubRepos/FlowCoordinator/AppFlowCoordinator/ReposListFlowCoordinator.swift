@@ -14,12 +14,12 @@ class ReposListFlowCoordinator: FlowCoordinator {
   fileprivate let window: UIWindow
   fileprivate var reposNavigationController: UINavigationController?
   fileprivate let dependencyProvider: GitHubReposFlowCoordinatorDependencyProvider
-  
+
   init(window: UIWindow, dependencyProvider: GitHubReposFlowCoordinatorDependencyProvider) {
     self.window = window
     self.dependencyProvider = dependencyProvider
   }
-  
+
   func start() {
     let reposNavigationController = dependencyProvider.reposListNavigationController(navigator: self)
     window.rootViewController = reposNavigationController
@@ -28,9 +28,9 @@ class ReposListFlowCoordinator: FlowCoordinator {
 }
 
 extension ReposListFlowCoordinator: ReposListNavigator {
-  
+
   func showDetails(for repo: Int) {
-    
+
   }
-  
+
 }

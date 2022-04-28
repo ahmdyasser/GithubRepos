@@ -10,11 +10,11 @@ import Combine
 import UIKit.UIImage
 
 final class RepositoriesUseCase: RepositoriesUseCaseType {
-  
+
   private let imageLoaderService: ImageLoaderServiceType
   private let networkService: NetworkServiceType
-  
-  ///fetchedRepos added  to be able later to simulate pagination since it's not supported by the API
+
+  /// fetchedRepos added  to be able later to simulate pagination since it's not supported by the API
   private var fetchedRepos: Repositories = []
 
   init(networkService: NetworkServiceType = NetworkService(),
@@ -22,13 +22,12 @@ final class RepositoriesUseCase: RepositoriesUseCaseType {
     self.imageLoaderService = imageLoaderService
     self.networkService = networkService
   }
-  
-  
-  //MARK: - RepositoriesUseCaseType Confirmation
+
+  // MARK: - RepositoriesUseCaseType Confirmation
 
   func fetchRepositories(page: Int = 1) -> AnyPublisher<Repositories, Error> {
     guard fetchedRepos.isEmpty else { return preFetchedRepositories(at: page) }
-    
+
     return networkService
       .load(Resource<Repositories>.repositories())
       .subscribe(on: Scheduler.backgroundWorkScheduler)
@@ -41,7 +40,7 @@ final class RepositoriesUseCase: RepositoriesUseCaseType {
       .first()
       .eraseToAnyPublisher()
   }
-  
+
   func repositoryDetails(_ repo: Repository) -> AnyPublisher<Repository, Error> {
     return networkService
       .load(Resource<Repository>.details(repoURL: repo.owner.url))
@@ -49,15 +48,14 @@ final class RepositoriesUseCase: RepositoriesUseCaseType {
       .receive(on: Scheduler.mainScheduler)
       .eraseToAnyPublisher()
   }
-  
-  
+
   func loadRepoImage(repo: Repository) -> AnyPublisher<UIImage?, Never> {
     guard let url = URL.init(string: repo.owner.avatarURL) else {
       return .empty()
     }
     return self.imageLoaderService.loadImage(from: url).eraseToAnyPublisher()
   }
-    
+
   func loadRepoDate(repo: Repository) -> AnyPublisher<String?, Never> {
     return networkService
       .load(Resource<RepoDetail>.repoDate(repoURL: repo.owner.url))
@@ -70,12 +68,11 @@ final class RepositoriesUseCase: RepositoriesUseCaseType {
       .replaceError(with: "-")
       .eraseToAnyPublisher()
   }
-  
+
 }
 
-
 extension RepositoriesUseCase {
-  
+
   /// Used to simulate pagination using the already fetched results.
   /// - Parameter page: page index, starts with 1
   /// - Returns: Repositories from index 0 to index (page * 10)
@@ -92,6 +89,6 @@ extension RepositoriesUseCase {
       .collect()
       .setFailureType(to: Error.self)
       .eraseToAnyPublisher()
-    
+
   }
 }

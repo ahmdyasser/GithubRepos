@@ -9,9 +9,9 @@ import Foundation
 
 struct RepoDetail: Codable {
   let createdAt: String?
-  
+
   enum CodingKeys: String, CodingKey {
     case createdAt = "created_at"
   }
-  
+
 }
