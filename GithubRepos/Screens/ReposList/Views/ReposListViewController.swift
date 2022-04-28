@@ -31,7 +31,7 @@ class ReposListViewController: UIViewController {
   private lazy var collectionViewDelegate = ReposCollectionViewDelegate(onPageRequest: self.onPageRequest,
                                                                              onItemSelected: self.onSelection)
 
-  var repoListView = RepoListView()
+  private var repoListView = RepoListView()
 
   override func loadView() {
     view = repoListView
@@ -118,7 +118,6 @@ class ReposListViewController: UIViewController {
 
   private func configureUI() {
     title = NSLocalizedString("Repositories", comment: "Top Repos")
-    view.accessibilityIdentifier = AccessibilityIdentifiers.RepositoryList.mainViewID
     repoListView.repoCollectionView.dataSource = collectionViewDataSource
     navigationItem.searchController = self.repoListView.searchController
     repoListView.searchController.isActive = false

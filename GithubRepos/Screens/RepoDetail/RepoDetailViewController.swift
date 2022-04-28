@@ -24,10 +24,17 @@ class RepoDetailViewController: UIViewController {
   }
 
   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    super.traitCollectionDidChange(previousTraitCollection)
+    guard let previousTraitCollection = previousTraitCollection else { return }
+
     guard let stacksContainer = repoDetailsView.stacksContainer else {
       return
     }
-    stacksContainer.axis = stacksContainer.axis == .vertical ? .horizontal: .vertical
+    if previousTraitCollection.verticalSizeClass == .regular {
+      stacksContainer.axis = .horizontal
+    } else {
+      stacksContainer.axis = .vertical
+    }
   }
 
   required init?(coder: NSCoder) {

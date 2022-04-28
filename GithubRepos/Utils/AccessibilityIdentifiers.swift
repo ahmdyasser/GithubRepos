@@ -15,6 +15,7 @@ enum AccessibilityIdentifiers {
     public static let searchFieldID = "\(RepositoryList.self).searchFieldID"
     public static let mainViewID = "\(RepositoryList.self).mainViewID"
     public static let cellID = "\(RepositoryList.self).cellId"
+    public static let collectionViewID = "\(RepositoryList.self).collectionViewID"
 
   }
 

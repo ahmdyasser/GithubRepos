@@ -40,6 +40,9 @@ class RepoListView: UIView {
   }()
 
   func setupView() {
+    accessibilityIdentifier = AccessibilityIdentifiers.RepositoryList.mainViewID
+    repoCollectionView.accessibilityIdentifier = AccessibilityIdentifiers.RepositoryList.collectionViewID
+    searchController.searchBar.accessibilityIdentifier = AccessibilityIdentifiers.RepositoryList.searchFieldID
     addSubview(repoCollectionView)
   }
 
