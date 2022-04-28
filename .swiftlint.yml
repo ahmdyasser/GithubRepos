@@ -1,0 +1,12 @@
+line_length: 250
+identifier_name:
+  min_length:
+    error: 2
+  excluded:
+    - id
+    - URL
+    - df
+nesting:
+  type_level:
+    warning: 3
+
