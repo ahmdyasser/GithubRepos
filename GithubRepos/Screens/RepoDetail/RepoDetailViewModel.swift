@@ -22,7 +22,7 @@ final class RepoDetailViewModel: RepoDetailViewModelType {
       }
       .print()
       .map {
-        DetailedRepoViewModel.init(createdAt: "\($0.createdAt)",
+        RepoDetailViewModelDTO.init(createdAt: "\($0.createdAt)",
                                    forksCount: "\($0.forksCount)",
                                    watchersCount: "\($0.watchersCount)" ,
                                    openIssuesCount: "\($0.openIssuesCount)",

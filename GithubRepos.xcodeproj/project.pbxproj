@@ -55,6 +55,8 @@
 		EF7060F4281A593C00D9D86D /* RepoDetailViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060F3281A593C00D9D86D /* RepoDetailViewModelType.swift */; };
 		EF7060F6281A5A7900D9D86D /* RepoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060F5281A5A7900D9D86D /* RepoDetailViewController.swift */; };
 		EF7060FA281AA44E00D9D86D /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060F9281AA44E00D9D86D /* ShadowView.swift */; };
+		EF7060FC281AA6F800D9D86D /* DetailedRepoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060FB281AA6F800D9D86D /* DetailedRepoViewModel.swift */; };
+		EF7060FE281AAE4F00D9D86D /* RepoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060FD281AAE4F00D9D86D /* RepoDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +135,8 @@
 		EF7060F3281A593C00D9D86D /* RepoDetailViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailViewModelType.swift; sourceTree = "<group>"; };
 		EF7060F5281A5A7900D9D86D /* RepoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailViewController.swift; sourceTree = "<group>"; };
 		EF7060F9281AA44E00D9D86D /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		EF7060FB281AA6F800D9D86D /* DetailedRepoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedRepoViewModel.swift; sourceTree = "<group>"; };
+		EF7060FD281AAE4F00D9D86D /* RepoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,7 +320,6 @@
 			children = (
 				EF7060F0281A58EF00D9D86D /* RepoDetail */,
 				EF65FEAD2819EAA100746FBA /* ReposList */,
-				EF7060F5281A5A7900D9D86D /* RepoDetailViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -429,6 +432,9 @@
 		EF7060F0281A58EF00D9D86D /* RepoDetail */ = {
 			isa = PBXGroup;
 			children = (
+				EF7060F5281A5A7900D9D86D /* RepoDetailViewController.swift */,
+				EF7060FD281AAE4F00D9D86D /* RepoDetailView.swift */,
+				EF7060FB281AA6F800D9D86D /* DetailedRepoViewModel.swift */,
 				EF7060F1281A590700D9D86D /* RepoDetailViewModel.swift */,
 				EF7060F3281A593C00D9D86D /* RepoDetailViewModelType.swift */,
 			);
@@ -693,6 +699,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF7060EB281A3C9800D9D86D /* Haptics.swift in Sources */,
+				EF7060FC281AA6F800D9D86D /* DetailedRepoViewModel.swift in Sources */,
 				EF65FEAA2819E5AC00746FBA /* Scheduler.swift in Sources */,
 				EF65FE972819DE8F00746FBA /* ImageLoaderService.swift in Sources */,
 				EF65FE732819CAE700746FBA /* ReposListNavigator.swift in Sources */,
@@ -724,6 +731,7 @@
 				EF65FE9C2819E05800746FBA /* Resource+Repository.swift in Sources */,
 				EF65FEA52819E31A00746FBA /* RepositoriesUseCaseType.swift in Sources */,
 				EF65FE712819CA7D00746FBA /* FlowCoordinatorDependencyProviders.swift in Sources */,
+				EF7060FE281AAE4F00D9D86D /* RepoDetailView.swift in Sources */,
 				EF7060E8281A2C9100D9D86D /* ReposCollectionViewDelegate.swift in Sources */,
 				EF65FEBC2819F26500746FBA /* RepoCollectionViewCell.swift in Sources */,
 				EF7060E4281A03FF00D9D86D /* String+matching.swift in Sources */,
