@@ -57,6 +57,9 @@
 		EF7060FA281AA44E00D9D86D /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060F9281AA44E00D9D86D /* ShadowView.swift */; };
 		EF7060FC281AA6F800D9D86D /* DetailedRepoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060FB281AA6F800D9D86D /* DetailedRepoViewModel.swift */; };
 		EF7060FE281AAE4F00D9D86D /* RepoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060FD281AAE4F00D9D86D /* RepoDetailView.swift */; };
+		EFE3ACDD281AB72100D01FEB /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3ACDC281AB72100D01FEB /* URLProtocolMock.swift */; };
+		EFE3ACDF281AB74700D01FEB /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3ACDE281AB74700D01FEB /* NetworkServiceTests.swift */; };
+		EFE3ACE1281AB86300D01FEB /* repos.json in Resources */ = {isa = PBXBuildFile; fileRef = EFE3ACE0281AB86300D01FEB /* repos.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +140,9 @@
 		EF7060F9281AA44E00D9D86D /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		EF7060FB281AA6F800D9D86D /* DetailedRepoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedRepoViewModel.swift; sourceTree = "<group>"; };
 		EF7060FD281AAE4F00D9D86D /* RepoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailView.swift; sourceTree = "<group>"; };
+		EFE3ACDC281AB72100D01FEB /* URLProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolMock.swift; sourceTree = "<group>"; };
+		EFE3ACDE281AB74700D01FEB /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
+		EFE3ACE0281AB86300D01FEB /* repos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = repos.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,7 +238,10 @@
 		EF65FE512819C89000746FBA /* GithubReposTests */ = {
 			isa = PBXGroup;
 			children = (
+				EFE3ACE2281AB86700D01FEB /* Responses */,
 				EF65FE522819C89000746FBA /* GithubReposTests.swift */,
+				EFE3ACDC281AB72100D01FEB /* URLProtocolMock.swift */,
+				EFE3ACDE281AB74700D01FEB /* NetworkServiceTests.swift */,
 			);
 			path = GithubReposTests;
 			sourceTree = "<group>";
@@ -441,6 +450,14 @@
 			path = RepoDetail;
 			sourceTree = "<group>";
 		};
+		EFE3ACE2281AB86700D01FEB /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				EFE3ACE0281AB86300D01FEB /* repos.json */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -560,6 +577,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFE3ACE1281AB86300D01FEB /* repos.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,6 +766,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF65FE532819C89000746FBA /* GithubReposTests.swift in Sources */,
+				EFE3ACDF281AB74700D01FEB /* NetworkServiceTests.swift in Sources */,
+				EFE3ACDD281AB72100D01FEB /* URLProtocolMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
