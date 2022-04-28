@@ -14,7 +14,7 @@ final class RepoListViewModel: RepositoryListViewModelable {
   private let useCase: RepositoriesUseCaseType
   private var cancellableBag: Set<AnyCancellable> = []
   private var pageNumber = 1
-  private var unfilteredRepos: Repositories = []
+  private var repos: Repositories = []
 
   init(useCase: RepositoriesUseCaseType,
        navigator: ReposListNavigator) {
@@ -25,10 +25,14 @@ final class RepoListViewModel: RepositoryListViewModelable {
   func transform(input: RepositoryListViewModelInput) -> RepositoryListViewModelOutput {
     cancellableBag = []
 
-    // On Repo selection
+    // MARK: - On Repo selection
     input.onRepoSelection
-      .sink { [weak self] repoID in
-        self?.navigator?.showDetails(for: repoID)
+      .sink { [weak self] repoIndex in
+        guard let self = self else { return }
+        guard repoIndex <= self.repos.count else { return assertionFailure("Trying to access wrong index")}
+
+        let repo = self.repos[repoIndex]
+        self.navigator?.showDetails(for: repo)
       }.store(in: &cancellableBag)
 
     // in case onAppear was called multiple times(dismissal of presented vc)
@@ -54,8 +58,8 @@ final class RepoListViewModel: RepositoryListViewModelable {
     // MARK: - Pagination Handling
 
     let pageRequest = input.onPageRequest
-      .handleEvents(receiveOutput: { self.pageNumber += 1})
-      .flatMapLatest { self.useCase.fetchRepositories(page: self.pageNumber).replaceError(with: []) }.map { repos -> RepositoryListState in
+      .handleEvents(receiveOutput: { self.pageNumber += 1 })
+      .flatMapLatest { self.fetchReposFor(page: self.pageNumber).replaceError(with: []) }.map { repos -> RepositoryListState in
         RepositoryListState.success(self.viewModels(from: repos))
       }
 
@@ -84,7 +88,7 @@ extension RepoListViewModel {
   private func fetchReposFor(page index: Int) -> AnyPublisher<Repositories, Never> {
     return self.useCase.fetchRepositories(page: self.pageNumber)
       .handleEvents(receiveOutput: {
-        self.unfilteredRepos = $0
+        self.repos = $0
       })
       .replaceError(with: [])
       .eraseToAnyPublisher()
@@ -95,7 +99,7 @@ extension RepoListViewModel {
       return self.useCase.fetchRepositories(page: self.pageNumber).replaceError(with: []).eraseToAnyPublisher()
     }
     guard query.count >= 2 else { return .empty() }
-    return self.unfilteredRepos
+    return self.repos
       .publisher
       .filter { repo in
         return repo.name.lowercased().matching(query: query.lowercased())
