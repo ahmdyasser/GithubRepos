@@ -60,6 +60,10 @@
 		EFE3ACDD281AB72100D01FEB /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3ACDC281AB72100D01FEB /* URLProtocolMock.swift */; };
 		EFE3ACDF281AB74700D01FEB /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3ACDE281AB74700D01FEB /* NetworkServiceTests.swift */; };
 		EFE3ACE1281AB86300D01FEB /* repos.json in Resources */ = {isa = PBXBuildFile; fileRef = EFE3ACE0281AB86300D01FEB /* repos.json */; };
+		EFE3ACE6281ABE3000D01FEB /* ReposUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3ACE5281ABE2F00D01FEB /* ReposUseCase.swift */; };
+		EFE3ACE9281ABEB100D01FEB /* MockedNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3ACE8281ABEB100D01FEB /* MockedNetworkService.swift */; };
+		EFE3ACEB281AC05700D01FEB /* Decodable+LoadFromFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3ACEA281AC05700D01FEB /* Decodable+LoadFromFile.swift */; };
+		EFE3ACED281AC2E600D01FEB /* ImageLoaderMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3ACEC281AC2E600D01FEB /* ImageLoaderMocks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +147,10 @@
 		EFE3ACDC281AB72100D01FEB /* URLProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolMock.swift; sourceTree = "<group>"; };
 		EFE3ACDE281AB74700D01FEB /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		EFE3ACE0281AB86300D01FEB /* repos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = repos.json; sourceTree = "<group>"; };
+		EFE3ACE5281ABE2F00D01FEB /* ReposUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposUseCase.swift; sourceTree = "<group>"; };
+		EFE3ACE8281ABEB100D01FEB /* MockedNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedNetworkService.swift; sourceTree = "<group>"; };
+		EFE3ACEA281AC05700D01FEB /* Decodable+LoadFromFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+LoadFromFile.swift"; sourceTree = "<group>"; };
+		EFE3ACEC281AC2E600D01FEB /* ImageLoaderMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderMocks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +246,9 @@
 		EF65FE512819C89000746FBA /* GithubReposTests */ = {
 			isa = PBXGroup;
 			children = (
+				EFE3ACE7281ABE9D00D01FEB /* Mocks */,
+				EFE3ACE4281ABE0500D01FEB /* UseCasesTests */,
+				EFE3ACE3281ABDAA00D01FEB /* Utils */,
 				EFE3ACE2281AB86700D01FEB /* Responses */,
 				EF65FE522819C89000746FBA /* GithubReposTests.swift */,
 				EFE3ACDC281AB72100D01FEB /* URLProtocolMock.swift */,
@@ -456,6 +467,31 @@
 				EFE3ACE0281AB86300D01FEB /* repos.json */,
 			);
 			path = Responses;
+			sourceTree = "<group>";
+		};
+		EFE3ACE3281ABDAA00D01FEB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EFE3ACEA281AC05700D01FEB /* Decodable+LoadFromFile.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		EFE3ACE4281ABE0500D01FEB /* UseCasesTests */ = {
+			isa = PBXGroup;
+			children = (
+				EFE3ACE5281ABE2F00D01FEB /* ReposUseCase.swift */,
+			);
+			path = UseCasesTests;
+			sourceTree = "<group>";
+		};
+		EFE3ACE7281ABE9D00D01FEB /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				EFE3ACE8281ABEB100D01FEB /* MockedNetworkService.swift */,
+				EFE3ACEC281AC2E600D01FEB /* ImageLoaderMocks.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -765,9 +801,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFE3ACE9281ABEB100D01FEB /* MockedNetworkService.swift in Sources */,
 				EF65FE532819C89000746FBA /* GithubReposTests.swift in Sources */,
 				EFE3ACDF281AB74700D01FEB /* NetworkServiceTests.swift in Sources */,
+				EFE3ACEB281AC05700D01FEB /* Decodable+LoadFromFile.swift in Sources */,
 				EFE3ACDD281AB72100D01FEB /* URLProtocolMock.swift in Sources */,
+				EFE3ACE6281ABE3000D01FEB /* ReposUseCase.swift in Sources */,
+				EFE3ACED281AC2E600D01FEB /* ImageLoaderMocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
