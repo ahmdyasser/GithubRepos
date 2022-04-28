@@ -1,5 +1,5 @@
 //
-//  RepositoryListViewModel.swift
+//  RepoListViewModel.swift
 //  GithubRepos
 //
 //  Created by Mostfa on 27/04/2022.
@@ -8,12 +8,13 @@
 import Foundation
 import Combine
 
-final class RepositoryListViewModel: RepositoryListViewModelable {
+final class RepoListViewModel: RepositoryListViewModelable {
   
   private weak var navigator: ReposListNavigator?
   private let useCase: RepositoriesUseCaseType
   private var cancellableBag: Set<AnyCancellable> = []
   private var pageNumber = 1
+  private var unfilteredRepos: Repositories = []
   
   
   init(useCase: RepositoriesUseCaseType,
@@ -35,7 +36,7 @@ final class RepositoryListViewModel: RepositoryListViewModelable {
     
     //in case onAppear was called multiple times(dismissal of presented vc)
     let repos = input.onAppear
-      .flatMapLatest { self.useCase.fetchRepositories(page: 1).replaceError(with: []) }
+      .flatMapLatest { self.fetchReposFor(page: self.pageNumber) }
       .map { repos -> RepositoryListState in
         RepositoryListState.success(self.viewModels(from: repos))
       }
@@ -43,32 +44,35 @@ final class RepositoryListViewModel: RepositoryListViewModelable {
     let searchInput = input.onSearch
       .removeDuplicates()
     
-    let movies = searchInput
+    
+    //MARK: - Search Handling
+    
+    let filteredRepos = searchInput
       .flatMapLatest({ query -> AnyPublisher<Repositories, Never> in
-        if query == "" {
-          return self.useCase.fetchRepositories(page: self.pageNumber).replaceError(with: []).eraseToAnyPublisher()
-        }
-        return self.useCase.searchRepos(query: query).replaceError(with: []).eraseToAnyPublisher()
+        return self.filterRepos(query: query)
       })
       .map({ result -> RepositoryListState in
         return.success(self.viewModels(from: result))
       })
     
+    //MARK: - Pagination Handling
+
     let pageRequest = input.onPageRequest
-      .flatMapLatest { self.useCase.fetchRepositories(page: $0).replaceError(with: []) }.map { repos -> RepositoryListState in
+      .handleEvents(receiveOutput: { self.pageNumber += 1} )
+      .flatMapLatest { self.useCase.fetchRepositories(page: self.pageNumber).replaceError(with: []) }.map { repos -> RepositoryListState in
         RepositoryListState.success(self.viewModels(from: repos))
       }
     
     
     
-    return Publishers.Merge3(repos,movies, pageRequest).eraseToAnyPublisher()
+    return Publishers.Merge3(repos,filteredRepos, pageRequest).eraseToAnyPublisher()
   }
   
   
   
 }
 
-extension RepositoryListViewModel {
+extension RepoListViewModel {
   func viewModels(from repos: Repositories) -> [RepoViewModel]  {
     repos.map {
       RepoViewModel.Builder.viewModel(from: $0) { repo in
@@ -84,4 +88,30 @@ extension RepositoryListViewModel {
     }
     
   }
+  
+  private func fetchReposFor(page index: Int) -> AnyPublisher<Repositories,Never> {
+    return self.useCase.fetchRepositories(page: self.pageNumber)
+      .handleEvents(receiveOutput: {
+        self.unfilteredRepos = $0
+      })
+      .replaceError(with: [])
+      .eraseToAnyPublisher()
+  }
+  private func filterRepos(query: String) -> AnyPublisher<Repositories, Never> {
+    
+    if query == "" {
+      return self.useCase.fetchRepositories(page: self.pageNumber).replaceError(with: []).eraseToAnyPublisher()
+    }
+    guard query.count >= 2 else { return .empty() }
+    return self.unfilteredRepos
+      .publisher
+      .filter { repo in
+        return repo.name.lowercased().matching(query: query.lowercased())
+      }
+      .collect()
+      .eraseToAnyPublisher()
+    
+  }
+  
+  
 }

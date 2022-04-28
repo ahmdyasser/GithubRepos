@@ -57,18 +57,7 @@ final class RepositoriesUseCase: RepositoriesUseCaseType {
     }
     return self.imageLoaderService.loadImage(from: url).eraseToAnyPublisher()
   }
-  
-  func searchRepos(query: String) -> AnyPublisher<Repositories, Error> {
-    fetchedRepos
-      .publisher
-      .filter { repo in
-        return repo.name.contains(query.lowercased())
-      }
-      .collect()
-      .setFailureType(to: Error.self)
-      .eraseToAnyPublisher()
-  }
-  
+    
   func loadRepoDate(repo: Repository) -> AnyPublisher<String?, Never> {
     return networkService
       .load(Resource<RepoDetail>.repoDate(repoURL: repo.owner.url))

@@ -22,7 +22,7 @@ final class ApplicationComponentsFactory {
 extension ApplicationComponentsFactory: ApplicationFlowCoordinatorDependencyProvider {
   
   func reposListNavigationController(navigator: ReposListNavigator) -> UINavigationController {
-    let reposListVC = ReposListViewController.init(viewModel: RepositoryListViewModel.init(useCase: useCase,
+    let reposListVC = ReposListViewController.init(viewModel: RepoListViewModel.init(useCase: useCase,
                                                                                            navigator: navigator))
     
     let navigationController = UINavigationController(rootViewController: reposListVC)

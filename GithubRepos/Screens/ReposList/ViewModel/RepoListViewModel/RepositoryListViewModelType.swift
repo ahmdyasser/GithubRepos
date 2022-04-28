@@ -22,7 +22,7 @@ struct RepositoryListViewModelInput {
   /// called when the user selected an item from the list
   let onRepoSelection: AnyPublisher<Int, Never>
   
-  let onPageRequest: AnyPublisher<Int, Never>
+  let onPageRequest: AnyPublisher<Void, Never>
   
 }
 

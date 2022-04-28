@@ -22,6 +22,5 @@ protocol RepositoriesUseCaseType: AutoMockable {
   
   func loadRepoDate(repo: Repository) -> AnyPublisher<String?, Never>
   
-  func searchRepos(query: String) -> AnyPublisher<Repositories, Error>
 }
 

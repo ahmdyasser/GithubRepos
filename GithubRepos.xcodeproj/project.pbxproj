@@ -43,10 +43,11 @@
 		EF65FEAC2819E6BE00746FBA /* DateFormatter+Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65FEAB2819E6BE00746FBA /* DateFormatter+Formatters.swift */; };
 		EF65FEB12819EADA00746FBA /* RepositoryListViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65FEB02819EADA00746FBA /* RepositoryListViewModelType.swift */; };
 		EF65FEB32819EB4900746FBA /* RepoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65FEB22819EB4900746FBA /* RepoViewModel.swift */; };
-		EF65FEB72819EC6F00746FBA /* RepositoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65FEB62819EC6F00746FBA /* RepositoryListViewModel.swift */; };
+		EF65FEB72819EC6F00746FBA /* RepoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65FEB62819EC6F00746FBA /* RepoListViewModel.swift */; };
 		EF65FEBA2819EF9E00746FBA /* RepoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65FEB92819EF9E00746FBA /* RepoListView.swift */; };
 		EF65FEBC2819F26500746FBA /* RepoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65FEBB2819F26500746FBA /* RepoCollectionViewCell.swift */; };
 		EF7060E22819FACA00D9D86D /* UIView+Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060E12819FACA00D9D86D /* UIView+Pin.swift */; };
+		EF7060E4281A03FF00D9D86D /* String+matching.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060E3281A03FF00D9D86D /* String+matching.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,10 +114,11 @@
 		EF65FEAB2819E6BE00746FBA /* DateFormatter+Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Formatters.swift"; sourceTree = "<group>"; };
 		EF65FEB02819EADA00746FBA /* RepositoryListViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewModelType.swift; sourceTree = "<group>"; };
 		EF65FEB22819EB4900746FBA /* RepoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoViewModel.swift; sourceTree = "<group>"; };
-		EF65FEB62819EC6F00746FBA /* RepositoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewModel.swift; sourceTree = "<group>"; };
+		EF65FEB62819EC6F00746FBA /* RepoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListViewModel.swift; sourceTree = "<group>"; };
 		EF65FEB92819EF9E00746FBA /* RepoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListView.swift; sourceTree = "<group>"; };
 		EF65FEBB2819F26500746FBA /* RepoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCollectionViewCell.swift; sourceTree = "<group>"; };
 		EF7060E12819FACA00D9D86D /* UIView+Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Pin.swift"; sourceTree = "<group>"; };
+		EF7060E3281A03FF00D9D86D /* String+matching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+matching.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +283,7 @@
 				EF7060E12819FACA00D9D86D /* UIView+Pin.swift */,
 				EF65FE8B2819DD2700746FBA /* Publisher+ConvenienceMethods.swift */,
 				EF65FEAB2819E6BE00746FBA /* DateFormatter+Formatters.swift */,
+				EF7060E3281A03FF00D9D86D /* String+matching.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -380,7 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				EF65FEB02819EADA00746FBA /* RepositoryListViewModelType.swift */,
-				EF65FEB62819EC6F00746FBA /* RepositoryListViewModel.swift */,
+				EF65FEB62819EC6F00746FBA /* RepoListViewModel.swift */,
 			);
 			path = RepoListViewModel;
 			sourceTree = "<group>";
@@ -648,7 +651,7 @@
 				EF65FEBA2819EF9E00746FBA /* RepoListView.swift in Sources */,
 				EF65FE782819D70000746FBA /* ReposListFlowCoordinator.swift in Sources */,
 				EF65FE7F2819D9C600746FBA /* Resource.swift in Sources */,
-				EF65FEB72819EC6F00746FBA /* RepositoryListViewModel.swift in Sources */,
+				EF65FEB72819EC6F00746FBA /* RepoListViewModel.swift in Sources */,
 				EF65FE922819DE0700746FBA /* AccessibilityIdentifiers.swift in Sources */,
 				EF65FE902819DDF300746FBA /* AutoMockable.swift in Sources */,
 				EF65FE7B2819D73D00746FBA /* ServiceProvider.swift in Sources */,
@@ -669,6 +672,7 @@
 				EF65FEA52819E31A00746FBA /* RepositoriesUseCaseType.swift in Sources */,
 				EF65FE712819CA7D00746FBA /* FlowCoordinatorDependencyProviders.swift in Sources */,
 				EF65FEBC2819F26500746FBA /* RepoCollectionViewCell.swift in Sources */,
+				EF7060E4281A03FF00D9D86D /* String+matching.swift in Sources */,
 				EF65FEA32819E16500746FBA /* RepoDetail.swift in Sources */,
 				EF65FE862819DA7A00746FBA /* GHContants.swift in Sources */,
 				EF65FE8C2819DD2700746FBA /* Publisher+ConvenienceMethods.swift in Sources */,

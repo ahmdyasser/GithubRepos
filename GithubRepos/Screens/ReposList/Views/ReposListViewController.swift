@@ -27,10 +27,9 @@ class ReposListViewController: UIViewController {
   private let onSelection = PassthroughSubject<Int, Never>()
   private let onSearch = PassthroughSubject<String, Never>()
   private let onAppear = PassthroughSubject<Void, Never>()
-  private let onPageRequest = PassthroughSubject<Int, Never>()
+  private let onPageRequest = PassthroughSubject<Void, Never>()
   
   private lazy var dataSource = makeDataSource()
-  private var pageCount: Int = 1
   
   
   //MARK: - View Elements
@@ -118,9 +117,6 @@ class ReposListViewController: UIViewController {
   
   
   func makeDataSource() -> ReposDataSource {
-    
-    
-    
     return ReposDataSource.init(collectionView: repoCollectionView) { collectionView, indexPath, viewModel in
       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RepoCell.reuseIdentifier,
                                                           for: indexPath) as? RepoCell
@@ -136,14 +132,11 @@ class ReposListViewController: UIViewController {
   }
   
   private func configureUI() {
-    definesPresentationContext = true
     title = NSLocalizedString("Repositories", comment: "Top Repos")
     view.accessibilityIdentifier = AccessibilityIdentifiers.RepositoryList.mainViewID
-    
     repoCollectionView.dataSource = dataSource
-    
     navigationItem.searchController = self.searchController
-    searchController.isActive = true
+    searchController.isActive = false
     
   }
   
@@ -185,7 +178,7 @@ class ReposListViewController: UIViewController {
 
 extension ReposListViewController: UISearchBarDelegate, UISearchResultsUpdating, UICollectionViewDelegate {
   func updateSearchResults(for searchController: UISearchController) {
-    
+    self.onSearch.send(searchController.searchBar.text ?? "")
   }
   
   
