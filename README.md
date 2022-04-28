@@ -49,6 +49,37 @@ In this section i will discuss some of the designs in the code base
 - NO 3rd party Libraries, i believe that 3rd party libraries shouldn't be used unless there's a huge need for it, and it's mintainable, otherwise it will be a headach, also i'm not intersted into increaing app size.
 - ImageLoader with used to load images natively, and it also supports cache
 - final is placed for some classe, which should increase overall speed(to Reducing Dynamic Dispatch) 
+- ⚠️ Alert: there's some repos with same author, this why some photos are dublicated, it's not an Reusing issue
+
+#### String Matching in Search 🔍
+as a requierment, i've made the following function for search
+ 
+
+```swift
+  /// Used to match a string with other one, works as the following
+  /// if the query: "123" and receiver is "145623", will return true, because 1, 2, 3 are contained in "145623"
+  /// - Parameter query: a string we are searching for inside a string
+  /// - Parameter threshold: number of chars that have to be exist in the receiver, default to 2
+  /// - Returns: boolean value to indicate if there's a match or not
+ private func optimizedMatching(query: String, threshold: Int = 2) -> Bool {
+    var dict: [Character: Bool] = [:]
+    var charsCount = 0
+    /// Time Complexity: O(N) + O(M) = O(M) where M is number of chars in a string, assuming that N the number of chars in a query is going to be less than M
+    /// Space Complexity: O(M), taken by dict
+    self.forEach { dict[$0] = true }
+
+    for char in query {
+      if dict[char] != nil {
+        charsCount += 1
+        if charsCount >= threshold { return true }
+      }
+    }
+
+    return false
+  }
+```
+* actually i'm a little bit skeptical about my understaning, did i unserstood it correctly ? my iniail understaind was using contains, but after much reading and concentrating i ended up with the current implemtnion 
+
 
 ### Workarounds
 
