@@ -3,8 +3,6 @@
 ![Screenshot](screen2-min.png)
 ![Screenshot](filterGFI.gif)
 
-
-
 ## GitHub Repos
 
 GitHubRepos is an iOS Application to list repositories from Github and it's for Robusta's task for iOS Software Engineer hiring process
@@ -27,6 +25,7 @@ while working on this project, to achieve some level of high quality and maintai
 10. Maintaining code quality by using SwiftLint.
 
 ### Architecture
+![Screenshot](mvvm.jpg)
 
 - MVVM
     - View(UIView/UIViewController)
@@ -47,7 +46,9 @@ In this section i will discuss some of the designs in the code base
 - Accessibility identifiers are placed on views, to make UI Testing possible using Early Grey, and, and will leverage from it in accessibility Support :)
 - Date formatters are kept static, since creating them is wasteful/costs a lot.
 - Network client is implemented using Combine; Combine makes handling errors more important through the pipeline ( unlike Rx, also, it’s native, and faster than Rx)
+- NO 3rd party Libraries, i believe that 3rd party libraries shouldn't be used unless there's a huge need for it, and it's mintainable, otherwise it will be a headach, also i'm not intersted into increaing app size.
 - ImageLoader with used to load images natively, and it also supports cache
+- final is placed for some classe, which should increase overall speed(to Reducing Dynamic Dispatch) 
 
 ### Workarounds
 
@@ -68,7 +69,7 @@ while writing the code, i’ve put a lot of thinking about how to make it testab
 
 Unfortunately, i wan’t able to test all of the following components due to time constraints, so i’ve supplied 4 test cases. 
 
-- test_loadFinishedSuccessfully ( btw, i’ve made a very detailed(one hour!!) tutorial about testing network clients, but didn’t release it yet)
+- test_loadFinishedSuccessfully ( btw, i’ve made a very detailed(one hour!!) tutorial about testing network clients, but didn’t release it yet https://youtu.be/2PqOcFsg7Sk)
 - test_loadFailedWithJsonParsingError
 - test_FetchRepositoriesPagination
 - test_FetchRepositoriesSucceeds
@@ -93,6 +94,9 @@ i believe that for every line of code we write, there’s a better one, this’s
 Related Links: 
 some of the techniques used here are inspired from the following links:
 
+
+[https://developer.apple.com/videos/play/wwdc2015/218/](https://www.donnywals.com/using-promises-and-futures-in-combine/)
+[https://developer.apple.com/videos/play/wwdc2015/408/](https://www.donnywals.com/using-promises-and-futures-in-combine/)
 [https://www.donnywals.com/using-promises-and-futures-in-combine/](https://www.donnywals.com/using-promises-and-futures-in-combine/)
 
 [https://sarunw.com/posts/how-to-use-dateformatter/](https://sarunw.com/posts/how-to-use-dateformatter/)
@@ -103,3 +107,5 @@ some of the techniques used here are inspired from the following links:
 [https://www.swiftbysundell.com/articles/preventing-views-from-being-model-aware-in-swift/](https://www.swiftbysundell.com/articles/preventing-views-from-being-model-aware-in-swift/)
 
 [https://www.wwt.com/article/synchronous-network-calls-with-combine](https://www.wwt.com/article/synchronous-network-calls-with-combine)
+
+Please let me know your feedback, thank you all for reading this ;) 
