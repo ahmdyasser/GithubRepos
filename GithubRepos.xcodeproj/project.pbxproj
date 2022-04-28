@@ -50,6 +50,7 @@
 		EF7060E4281A03FF00D9D86D /* String+matching.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060E3281A03FF00D9D86D /* String+matching.swift */; };
 		EF7060E6281A2AB100D9D86D /* RoundedCellViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060E5281A2AB100D9D86D /* RoundedCellViewComponents.swift */; };
 		EF7060E8281A2C9100D9D86D /* ReposCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060E7281A2C9100D9D86D /* ReposCollectionViewDelegate.swift */; };
+		EF7060EB281A3C9800D9D86D /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7060EA281A3C9800D9D86D /* Haptics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		EF7060E3281A03FF00D9D86D /* String+matching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+matching.swift"; sourceTree = "<group>"; };
 		EF7060E5281A2AB100D9D86D /* RoundedCellViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCellViewComponents.swift; sourceTree = "<group>"; };
 		EF7060E7281A2C9100D9D86D /* ReposCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		EF7060EA281A3C9800D9D86D /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +318,7 @@
 				EF65FE8F2819DDF300746FBA /* AutoMockable.swift */,
 				EF65FE912819DE0700746FBA /* AccessibilityIdentifiers.swift */,
 				EF65FEA92819E5AC00746FBA /* Scheduler.swift */,
+				EF7060EA281A3C9800D9D86D /* Haptics.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -669,6 +672,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF7060EB281A3C9800D9D86D /* Haptics.swift in Sources */,
 				EF65FEAA2819E5AC00746FBA /* Scheduler.swift in Sources */,
 				EF65FE972819DE8F00746FBA /* ImageLoaderService.swift in Sources */,
 				EF65FE732819CAE700746FBA /* ReposListNavigator.swift in Sources */,
@@ -873,7 +877,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4P4X5M92CT;
+				DEVELOPMENT_TEAM = VY964QG6LS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GithubRepos/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -901,7 +905,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4P4X5M92CT;
+				DEVELOPMENT_TEAM = VY964QG6LS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GithubRepos/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -48,9 +48,9 @@ class RepoListView: UIView {
     let layout = UICollectionViewCompositionalLayout { _, environment in
 
       let itemsPerRow = environment.traitCollection.horizontalSizeClass == .compact ? 2 : 6
-      let movieCoverRatio: CGFloat = 2 / 3
+      let coverRatio: CGFloat = 2 / 3
       let widthRatio: CGFloat = 1 / CGFloat(itemsPerRow)
-      let heightRatio = widthRatio / movieCoverRatio
+      let heightRatio = widthRatio / coverRatio
 
       let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(widthRatio),
                                             heightDimension: .fractionalHeight(1.0))

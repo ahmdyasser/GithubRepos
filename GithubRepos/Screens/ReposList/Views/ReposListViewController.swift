@@ -28,7 +28,8 @@ class ReposListViewController: UIViewController {
   private let onPageRequest = PassthroughSubject<Void, Never>()
 
   private lazy var collectionViewDataSource = makeDataSource()
-  private lazy var collectionViewDelegate = ReposCollectionViewDelegate.init(self.onPageRequest)
+  private lazy var collectionViewDelegate = ReposCollectionViewDelegate(onPageRequest: self.onPageRequest,
+                                                                             onItemSelected: self.onSelection)
 
   var repoListView = RepoListView()
 
@@ -49,8 +50,8 @@ class ReposListViewController: UIViewController {
   // MARK: - View Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupUIDelegates()
     configureUI()
+    setupUIDelegates()
     bind(to: viewModel)
     onAppear.send()
 
@@ -121,6 +122,11 @@ class ReposListViewController: UIViewController {
     repoListView.repoCollectionView.dataSource = collectionViewDataSource
     navigationItem.searchController = self.repoListView.searchController
     repoListView.searchController.isActive = false
+    collectionViewDelegate.onScroll = { [weak self] in
+      self?.repoListView.searchController.isActive = false
+        self?.repoListView.searchController.searchBar.resignFirstResponder()
+
+    }
   }
 
 }
