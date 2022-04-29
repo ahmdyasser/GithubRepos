@@ -3,7 +3,7 @@
 ![Screenshot](screen2-min.png)
 ![Screenshot](filterGFI.gif)
 
-## GitHub Repos
+## GitHub Repos 💻
 
 GitHubRepos is an iOS Application to list repositories from Github and it's for Robusta's task for iOS Software Engineer hiring process
 
@@ -41,8 +41,8 @@ while working on this project, to achieve some level of high quality and maintai
 
 In this section i will discuss some of the designs in the code base
 
-- Stack Views are used as much as possible, to make supporting Dynamic data(varying text ...) easier, and also landscape
-- CocoaPods Keys are used to fetch GitHub APIKey, instead of hardcoding API Keys inside the source code
+- Stack Views are used as much as possible, to make supporting Dynamic data(varying text ...) easier, and also support landscape.
+- CocoaPods Keys are used to store GitHub APIKey(outside git, and safer), instead of hardcoding API Keys inside the source code.
 - Accessibility identifiers are placed on views, to make UI Testing possible using Early Grey, and, and will leverage from it in accessibility Support :)
 - Date formatters are kept static, since creating them is wasteful/costs a lot.
 - Network client is implemented using Combine; Combine makes handling errors more important through the pipeline ( unlike Rx, also, it’s native, and faster than Rx)
@@ -113,7 +113,7 @@ Unfortunately, i wan’t able to test all of the following components due to tim
 
 ### Improvements
 
-i believe that for every line of code we write, there’s a better one, this’s why we keep learning and learning, for this project, the areas of improvements where a result of time contrstains, here’ re some of it, let me know if you have more :) 
+i believe that for every line of code we write, there’s a better one, this’s why we keep learning and learning, for this project, the areas of improvements where a result of time contrstains, here’ re some of it, let me know if you have more :)
 
 - More Test cases are needed.
 - Better handling for Requests Authroizeion, and testing it.
@@ -121,6 +121,7 @@ i believe that for every line of code we write, there’s a better one, this’s
 - instead of re-fetching the repo when accessing repodetails, we could send RepoDetails which was already fetched to display date
 - in landscape, there’s no dismiss button, we should add one 🙂
 - supporting more repository details.
+- Better handling for app archticture/folder structure
 
 Related Links: 
 some of the techniques used here are inspired from the following links:
