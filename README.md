@@ -20,7 +20,7 @@ while working on this project, to achieve some level of high quality and maintai
 5. Embracing Value Types instead of references. 
 6. Back Supporting until iOS 13
 7. Dark/Light mode support.
-8. Use Swifty APIs like UIDiffableDataSources, and UIComposableDataSources.
+8. Use Swifty APIs like UIDiffableDataSources, and UICollectionViewCompositionalLayout.
 9. Applying Clean architecture principles as much as i can to enable modality.
 10. Maintaining code quality by using SwiftLint.
 
